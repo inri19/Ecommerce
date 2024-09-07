@@ -6,7 +6,7 @@ def envoyer_email(email_send, subject, content):
 
 	email_sender = email_send
 	email_password = "ujvq jqtg ohnt gybr"
-	email_receiver = "cdoxaran@gmail.com" # "andresmotoha1995@gmail.com"
+	email_receiver = "andresmotoha1995@gmail.com" # "andresmotoha1995@gmail.com"
 
 	subject = subject
 	body = content
