@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	{% if panier %}
+
+		<div class="container">
+
+			<p class="simple-heading-1">Votre panier</p>
+			<hr>
+
+			<table class="table">
+
+				<thead>
+					<tr>
+						<th>Image</th>
+						<th>Produit</th>
+						<th>Prix</th>
+						<th>Quantite</th>
+					</tr>
+				</thead>
+
+				<tbody>
+
+					{% for commande in panier %}
+					<tr>
+
+						<td><img class="image rounded-circle" height="100px" width="100px" src="{{ commande.produit.image.url }}"></td>
+						<td>{{ commande.produit.nom }}</td>
+						<td>{{ commande.produit.prix }}</td>
+						<td>{{ commande.quantite }}</td>
+
+					</tr>
+					{% endfor %}
+
+				</tbody>
+			</table>
+			
+		</div>
+
+		<div class="container">
+
+			<form method="POST">
+
+				{% csrf_token %}
+
+				<button type="submit" class="btn btn-primary btn-lg" name="valider_commande" value="good">Valider commande</button>
+				
+			</form>
+
+			<h3>{{ montant_tot }} euros</h3>
+
+			<a href="{% url 'panier_delete' %}">Vider le panier</a>
+
+		</div>
+
+	{% else %}
+
+		<h2>Aucun produit dans votre panier</h2>
+
+	{% endif %}
+
+{% endblock %}

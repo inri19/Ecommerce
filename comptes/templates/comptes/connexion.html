@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<!-- Main Container -->
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+	
+	<div class="row border rounded-5 p63 bg-white shadow box-area">
+		
+		<div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background : #ea2424">
+
+			<div class="featured-image mb-3">
+				<img href="https://imgs.search.brave.com/as55UMm73nLlbVeMdJ4Bdw0grODM5UKvxLPRWBrqs7E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdG9y/aWVzLmZyZWVwaWts/YWJzLmNvbS9zdG9y/YWdlLzUzNDMxL0Nv/bXB1dGVyLWxvZ2lu/LSgyKS0wMS5zdmc" class="img-fluid" style="width: 250px;"/>
+			</div>
+			<p class="text-white fs-2">Connexion</p>
+			<small class="text-white text-wrap text-center" style="width: 17rem;">Commande tes produits.</small>
+
+		</div>
+
+		<div class="col-md-6 right-box">
+			
+			<div class="row align-items-center">
+
+				<div class="header-text mb-4">
+					<h2>Encore, Bonjour...</h2>
+				</div>
+
+				<form method="POST">
+
+					{% csrf_token %}
+
+					<div class="input-group mb-3">
+
+						<input type="text" name="username" class="form-control form-control-lg bg-light fs-6" placeholder="Nom Utilisateur">
+						
+					</div>
+
+					<div class="input-group mb-1">
+
+						<input type="password" name="password" class="form-control form-control-lg bg-light fs-6" placeholder="Mot de passe">
+						
+					</div>
+
+					<div class="input-group mb-5 d-flex">
+
+						<div class="forgot">
+							<small><a href="#">Mot de pass oublié?</a></small>
+						</div>
+						
+					</div>
+
+					<div class="input-group mb-3">
+
+						<button class="btn btn-lg btn-primary w-100 fs-6" style="background : #ea2424">Connexion</button>
+						
+					</div>
+
+				</form>
+
+				<div class="row">
+
+					<small>Pas de compte creer en un <a href="/inscription">ici</a></small>
+					
+				</div>
+				
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<style type="text/css">
+	.box-area{
+		width: 930px;
+	}
+	.right-box{
+		padding: 40px 30px 40px 40px;
+	}
+	/* Small Screen */
+	@media only screen and (max-width: 768px){
+		.box-area{
+			margin: 0 10px;
+		}
+		.left-box{
+			height: 100px;
+			overflow: hidden;
+		}
+		.right-box{
+			padding:20px;
+		}
+	}
+</style>
+
+{% endblock %}
