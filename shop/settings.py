@@ -147,7 +147,7 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL ="/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+#MEDIA_ROOT = BASE_DIR / "media"
 django_heroku.settings(locals())
 
 AUTH_USER_MODEL = "comptes.Utilisateur"
