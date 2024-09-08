@@ -25,7 +25,7 @@
 					{% for commande in panier %}
 					<tr>
 
-						<td><img class="image rounded-circle" height="100px" width="100px" src="{{ commande.produit.image.url }}"></td>
+						<td><img class="image rounded-circle" height="100px" width="100px" src="{{ commande.produit.image_url }}"></td>
 						<td>{{ commande.produit.nom }}</td>
 						<td>{{ commande.produit.prix }}</td>
 						<td>{{ commande.quantite }}</td>
