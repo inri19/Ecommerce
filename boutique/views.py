@@ -71,6 +71,7 @@ def panier(request):
 
 			try :
 				envoyer_email(email_send="doxaranjm@gmail.com", subject="Commande", content=text)
+
 				print("Email bien envoyer ")
 			except Exception as e :
 				print(type(e))
@@ -89,3 +90,17 @@ def panier_delete(request):
 
 	return redirect("index")
 
+def commande_valider(request):
+
+	user = request.user
+
+	if not user :
+
+		return redirect("index")
+
+	panier = request.user.panier
+
+	if panier :
+		panier.commandes.all().delete()
+
+	return render(request, "boutique/commande_valider.html", context = {})

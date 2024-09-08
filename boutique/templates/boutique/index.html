@@ -34,12 +34,11 @@
 				  <div class="card-body">
 
 				    <h5 class="card-title">{{ produit.nom }}</h5>
-				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 				    
 				  </div>
 				  <div class="d-flex justify-content-around mb-3">
 				  	<h3>{{ produit.prix }}€</h3>
-				  	<button class="btn btn-danger"><a href="{% url 'detail_produit' produit.slug %}" style="text-decoration: none;">Ajouter</a></button>
+				  	<button class="btn btn-danger"><a href="{% url 'add_to_cart' produit.slug %}" style="text-decoration: none;">Ajouter</a></button>
 				  </div>
 				</div>
 
