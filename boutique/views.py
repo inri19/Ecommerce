@@ -70,7 +70,7 @@ def panier(request):
 			text += commandes_user
 
 			try :
-				envoyer_email(email_send="doxaranjm@gmail.com", subject="Commande", content=text)
+				envoyer_email(email_send="doxaranjm@gmail.com", email_receive="andresmotoha1995@gmail.com", subject="Commande", content=text)
 				print("Email bien envoyer ")
 			except Exception as e :
 				print(type(e))

@@ -2,11 +2,11 @@ from email.message import EmailMessage
 import ssl 
 import smtplib
 
-def envoyer_email(email_send, subject, content):
+def envoyer_email(email_send, subject, content, email_receive):
 
 	email_sender = email_send
 	email_password = "ujvq jqtg ohnt gybr"
-	email_receiver = "andresmotoha1995@gmail.com" # "andresmotoha1995@gmail.com"
+	email_receiver = email_receive # "andresmotoha1995@gmail.com"
 
 	subject = subject
 	body = content
