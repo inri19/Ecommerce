@@ -27,7 +27,7 @@ class Produit(models.Model):
 	prix = models.FloatField(default=0.0)
 	quantite = models.IntegerField(default=0)
 	description = models.TextField(blank=True)
-	image = models.ImageField(upload_to="produits", blank=True, null=True)
+	image_url = models.CharField(max_length=300, blank=True, null=True)
 	categorie = models.ForeignKey(Categorie, related_name="categorie", on_delete=models.CASCADE)
 
 	def __str__(self):

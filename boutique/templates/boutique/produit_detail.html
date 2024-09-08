@@ -8,7 +8,7 @@
 {% if user.is_authenticated %}
 	<p><a href="{% url 'add_to_cart' produit.slug %}">Ajouter au panier</a></p>
 {% endif %}
-<img src="{{ produit.image.url }}" style="max-width: 250px;"/>
+<img src="{{ produit.image_url }}" style="max-width: 250px;"/>
 <p>{{ produit.description }}</p>
 
 
