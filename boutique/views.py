@@ -66,7 +66,7 @@ def panier(request):
 
 		if valide_commande == "good" :
 
-			text = f"{user.email} {user.numero_telephone} {user.adresse}\n"
+			text = f"Email : {user.email} \nNumero Telephone : {user.numero_telephone} \n Adresse : {user.adresse}\n"
 			text += commandes_user
 
 			try :
