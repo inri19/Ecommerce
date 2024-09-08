@@ -42,7 +42,7 @@ def add_to_cart(request, slug):
 		commande.quantite += 1
 		commande.save()
 
-	return redirect(reverse("detail_produit", kwargs={"slug" : slug}))
+	return redirect("index")
 
 def panier(request): 
 
