@@ -71,8 +71,9 @@ def panier(request):
 
 			try :
 				envoyer_email(email_send="doxaranjm@gmail.com", subject="Commande", content=text)
-
 				print("Email bien envoyer ")
+
+				return redirect("commande_valider")
 			except Exception as e :
 				print(type(e))
 				print(e.args)
