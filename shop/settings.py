@@ -13,6 +13,18 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+# Configuration Cloudinary
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME' : 'data',
+    'API_KEY' : '399947867577825',
+    'API_SECRET' : '-kiCQKVpOpaMdM0j5BU7xlb05ZI'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.MediaCloudinaryStorage'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,7 +53,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'boutique',
     'comptes',
-    'localflavor'
+    'localflavor',
+    'cloudinary',
+    'cloudinary_storage',
+
 ]
 
 MIDDLEWARE = [
