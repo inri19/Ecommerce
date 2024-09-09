@@ -42,6 +42,15 @@
 				  <div class="card-body">
 
 				    <h5 class="card-title">{{ produit.nom }}</h5>
+
+				    {% if produit.categorie.nom == "Boissons" %}
+				    	<p class="card-text">24 par pack</p>
+				    {% elif produit.categorie.nom == "Creme" %}
+				    	<p class="card-text">6 par pack</p>
+				    {% else %}
+				    	<p class="card-text">A l'unité</p>
+				    {% endif %}
+				    
 				    
 				  </div>
 				  <div class="d-flex justify-content-around mb-3">

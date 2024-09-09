@@ -60,7 +60,18 @@ def panier(request):
 
 	for commande in panier.commandes.all() :
 
-		total += commande.produit.prix * commande.quantite
+		if commande.produit.categorie.nom == "Boissons" :
+
+			total += (commande.produit.prix*24) * commande.quantite 
+
+		elif commande.produit.categorie.nom == "Creme" :
+
+			total += (commande.produit.prix*6) * commande.quantite
+
+		else :
+
+			total += commande.produit.prix * commande.quantite
+
 		cmd = str(commande.produit.nom) + " " + str(commande.quantite) + "\n"
 		commandes_user +=  cmd
 	
