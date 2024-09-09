@@ -40,7 +40,7 @@
 
 		<div class="container d-flex justify-content-between align-items-center">
 
-			<h3>{{ montant_tot|floatformat:2 }}€</h3>
+			<h3>Total : {{ montant_tot|floatformat:2 }}€</h3>
 
 			<form method="POST">
 
@@ -50,12 +50,13 @@
 				
 			</form>
 		
+			<a href="{% url 'panier_delete' %}">Vider le panier</a>
 
 		</div>
-		<a href="{% url 'panier_delete' %}">Vider le panier</a>
+		
 	{% else %}
 
-		<h2>Aucun produit dans votre panier</h2>
+		<h2 class="text-center">Aucun produit dans votre panier...</h2>
 
 	{% endif %}
 
