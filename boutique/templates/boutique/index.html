@@ -27,7 +27,7 @@
 		    <div class="row">
 		    	{% for categorie in categories %}
 		        <div class="col-4">
-		            <button class="btn btn-primary w-100" type="button"><a href="{% url 'produits_par_categorie' categorie.nom %}" style="text-decoration: none; color: inherit;">{{ categorie.nom }}</a></button>
+		            <button class="btn btn-danger w-100" type="button"><a href="{% url 'produits_par_categorie' categorie.nom %}" style="text-decoration: none; color: inherit;">{{ categorie.nom }}</a></button>
 		        </div>
 		        {% endfor %}
 		        
