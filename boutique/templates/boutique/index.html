@@ -44,7 +44,7 @@
 				    <h5 class="card-title">{{ produit.nom }}</h5>
 
 				    {% if produit.categorie.nom == "Boissons" %}
-				    	{% if produit.nom == "cristaline" %}
+				    	{% if produit.slug == "cristaline" %}
 				    		<p class="card-text">Description : 6 unité par pack</p>
 				    	{%  else %}
 				    		<p class="card-text">Description : 24 unité par pack</p>
