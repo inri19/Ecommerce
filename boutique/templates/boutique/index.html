@@ -23,6 +23,14 @@
 
   		<h1 class="text-center">Nos produits</h1>
 
+  		<div class="container">
+
+  			{% for categorie in categories %}
+  				<button type="button" class="btn btn-danger btn-lg"><a href="{% url 'produits_par_categorie' categorie.nom %}" style="text-decoration: none;">{{ categorie.nom }}</a></button>
+  			{% endfor %}
+  			
+  		</div>
+
   		<div class="row row-cols-1 row-cols-md-3 g-4 py-5 justify-content-center">
   			
   			{% for produit in produits %}

@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path
-from boutique.views import index, detail_produit, add_to_cart, panier, panier_delete, commande_valider
+from boutique.views import index, detail_produit, add_to_cart, panier, panier_delete, commande_valider, produits_par_categorie
 from comptes.views import SignUp, logout_user, login_user
 from shop import settings
 
@@ -25,6 +25,7 @@ urlpatterns = [
 	path('', index, name="index"),
 	path('produit/<str:slug>/', detail_produit, name="detail_produit"),
     path('produit/<str:slug>/add_to_cart/', add_to_cart, name="add_to_cart"),
+    path('categorie/<str:slug_cat>/', produits_par_categorie, name="produits_par_categorie"),
     path('panier/', panier, name="panier"),
     path('panier/supprimer/', panier_delete, name="panier_delete"),
     path('commande_valider/', commande_valider, name="commande_valider"),

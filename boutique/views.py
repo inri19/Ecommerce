@@ -105,3 +105,10 @@ def commande_valider(request):
 		panier.commandes.all().delete()
 
 	return render(request, "boutique/commande_valider.html", context = {})
+
+def produits_par_categorie(request, slug_cat):
+
+	categorie = get_object_or_404(Categorie, nom=slug_cat)
+	produits = Produit.objects.filter(categorie=categorie)
+
+	return render(request, "boutique/categorie.html", context = { "categorie" : categorie, "produits" : produits })

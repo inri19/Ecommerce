@@ -1,4 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<div class="container py-5">
+
+	<h1 class="text-center">{{ categorie.nom }}</h1>
+	
+	<div class="row row-cols-1 row-cols-md-3 g-4 py-5 justify-content-center">
+  			
+  		{% for produit in produits %}
+
+  			<div class="col d-flex justify-content-center">
+  				
+  				<div class="card text-bg-light  justify-content-center" style="width: 18rem;">
+				  <img src="{{ produit.image_url }}" class="card-img-top" alt="..." style="height: 250px; object-fit: contain;">
+				  <div class="card-body">
+
+				    <h5 class="card-title">{{ produit.nom }}</h5>
+				    
+				  </div>
+				  <div class="d-flex justify-content-around mb-3">
+				  	<h3>{{ produit.prix }}€ TTC</h3>
+				  	<button class="btn btn-danger"><a href="{% url 'add_to_cart' produit.slug %}" style="text-decoration: none;">Ajouter</a></button>
+				  </div>
+				</div>
+
+  			</div>
+
+  		{% endfor %}
+
+  	</div>
+
+</div>
+
 {% endblock %}
