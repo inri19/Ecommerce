@@ -29,18 +29,22 @@ def add_to_cart(request, slug):
 	user = request.user
 	produit = get_object_or_404(Produit, slug=slug)
 
-	panier, _ = Panier.objects.get_or_create(user=user)
-	commande, creer = Commande.objects.get_or_create(user=user, produit=produit, commande_valider=False)
+	if request.method == "POST" :
 
-	if creer:
+		quantite = int(request.POST.get("quantite"))
 
-		panier.commandes.add(commande)
-		panier.save()
+		panier, _ = Panier.objects.get_or_create(user=user)
+		commande, creer = Commande.objects.get_or_create(user=user, produit=produit, quantite=quantite, commande_valider=False)
 
-	else :
+		if creer:
 
-		commande.quantite += 1
-		commande.save()
+			panier.commandes.add(commande)
+			panier.save()
+
+		else :
+
+			commande.quantite += quantite
+			commande.save()
 
 	return redirect("index")
 
