@@ -48,7 +48,7 @@
 				
 			</form>
 
-			<h3>{{ montant_tot }} euros</h3>
+			<h3>{{ montant_tot|floatformat:2 }} euros</h3>
 
 			<a href="{% url 'panier_delete' %}">Vider le panier</a>
 

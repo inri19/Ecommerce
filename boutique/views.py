@@ -49,7 +49,7 @@ def panier(request):
 	user = request.user
 	panier = get_object_or_404(Panier, user=request.user)
 
-	total = 0
+	total = 0.0
 	commandes_user = ""
 
 	# panier.commandes.all().annotate(tot=commande.produit.prix * commande.quantite)
