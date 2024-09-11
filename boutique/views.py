@@ -62,7 +62,7 @@ def panier(request):
 
 		if commande.produit.categorie.nom == "Boissons" :
 
-			if commande.produit.slug == "cristaline" :
+			if commande.produit.slug == "cristaline" or commande.produit.slug == "lait_demi_ecreme" :
 				total += (commande.produit.prix*6) * commande.quantite
 			else :
 				total += (commande.produit.prix*24) * commande.quantite 

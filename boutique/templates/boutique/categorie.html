@@ -17,8 +17,8 @@
 				  <div class="card-body">
 
 				    <h5 class="card-title">{{ produit.nom }}</h5>
-				    {% if produit.categorie.nom == "Boissons" %}
-				    	{% if produit.slug == "cristaline" %}
+				    {% if produit.categorie.nom == "Boissons" or produit.categorie.nom == "Lait" %}
+				    	{% if produit.slug == "cristaline" or produit.slug == "lait_demi_ecreme" %}
 				    		<p class="card-text">Description : 6 unité par pack</p>
 				    	{%  else %}
 				    		<p class="card-text">Description : 24 unité par pack</p>
@@ -31,20 +31,22 @@
 				    {% endif %}
 				    
 				  </div>
-				  <div class="d-flex justify-content-around mb-3">
-				  	
-				  	<form method="POST" action="{% url 'add_to_cart' produit.slug %}">
-			          {% csrf_token %}
-			          {% if produit.slug == "huile_de_friture" %}
-			          	<h3>{{ produit.prix|floatformat:2 }}€/L TTC</h3>
-			          {% else %}
-			          	<h3>{{ produit.prix|floatformat:2 }}€ TTC</h3>
-			          {% endif %}
-			          <input type="number" name="quantite" min="1" value="1" class="form-control" style="width: 70px; display: inline-block;">
-			          <button type="submit" class="btn btn-danger">Ajouter</button>
-			        </form>
+				  {% if user.is_authenticated %}
+					  <div class="d-flex justify-content-around mb-3">
+					  	
+					  	<form method="POST" action="{% url 'add_to_cart' produit.slug %}">
+				          {% csrf_token %}
+				          {% if produit.slug == "huile_de_friture" %}
+				          	<h3>{{ produit.prix|floatformat:2 }}€/L TTC</h3>
+				          {% else %}
+				          	<h3>{{ produit.prix|floatformat:2 }}€ TTC</h3>
+				          {% endif %}
+				          <input type="number" name="quantite" min="1" value="1" class="form-control" style="width: 70px; display: inline-block;">
+				          <button type="submit" class="btn btn-danger">Ajouter</button>
+				        </form>
 
-				  </div>
+					  </div>
+				  {% endif %}
 				</div>
 
   			</div>
